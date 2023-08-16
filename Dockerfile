@@ -50,7 +50,7 @@ RUN shopt -s globstar; \
     /usr/lib/rpm/rpmdeps -P lib/** bin/** > provides.txt && \
     /usr/lib/rpm/rpmdeps -R lib/** bin/** | grep -v -f provides.txt > requires.txt
 
-FROM fedora:35 as refbox
+FROM fedora:37 as refbox
 COPY --from=buildenv /buildenv/bin/* /usr/local/bin/
 COPY --from=buildenv /buildenv/lib/* /usr/local/lib64/
 COPY --from=buildenv /buildenv/src/games /usr/local/share/rcll-refbox/games
